@@ -8,19 +8,24 @@
 <meta property="og:title" content="Srivatsa V | Finance professional, Chennai">
 <meta property="og:description" content="Four years of getting the books right, now applied to equity research, FP&amp;A and risk analysis.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%2314284B'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' font-weight='bold' text-anchor='middle' fill='%23F1F4EE'%3ESV%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F1F3D'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' font-weight='bold' text-anchor='middle' fill='%23C8A24A'%3ESV%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Spectral:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper: #F1F4EE;
-    --panel: #E5EBE1;
+    --navy: #0F1F3D;
+    --navy-2: #162B52;
+    --paper: #F6F7F3;
+    --white: #FFFFFF;
     --ink: #14284B;
-    --muted: #4F5C73;
-    --rule: #BFC9BC;
+    --muted: #55627A;
+    --rule: #DDE3DA;
     --green: #1F6B4F;
     --green-dark: #17523C;
+    --mint: #E1EEE6;
+    --gold: #C8A24A;
+    --gold-light: #DDB95F;
     --serif: "Spectral", Georgia, "Times New Roman", serif;
     --sans: "IBM Plex Sans", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
@@ -39,152 +44,246 @@
   }
   a { color: var(--green-dark); text-underline-offset: 3px; }
   a:hover { color: var(--ink); }
-  :focus-visible { outline: 3px solid var(--green); outline-offset: 3px; border-radius: 2px; }
+  :focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
 
-  .skip {
-    position: absolute; left: -999px; top: 0;
-    background: var(--ink); color: var(--paper); padding: .6rem 1rem; z-index: 10;
-  }
+  .skip { position: absolute; left: -999px; top: 0; background: var(--gold); color: var(--navy); padding: .6rem 1rem; z-index: 20; font-weight: 600; }
   .skip:focus { left: 0; }
-
   .wrap { max-width: 1040px; margin: 0 auto; padding: 0 1.5rem; }
 
-  /* Header */
-  .site-header { padding: 1.25rem 0; border-bottom: 1px solid var(--rule); }
-  .site-header .wrap {
-    display: flex; flex-wrap: wrap; gap: .75rem 2rem;
-    align-items: baseline; justify-content: space-between;
+  /* ---------- Top band: header and hero ---------- */
+  .top {
+    background:
+      radial-gradient(800px 380px at 88% 8%, rgba(31,107,79,.5), transparent 62%),
+      radial-gradient(600px 300px at 0% 100%, rgba(200,162,74,.14), transparent 65%),
+      linear-gradient(180deg, var(--navy), var(--navy-2));
+    color: #fff;
+    padding-bottom: 7rem;
   }
-  .brand { font-family: var(--serif); font-weight: 600; font-size: 1.25rem; color: var(--ink); text-decoration: none; }
-  .nav { display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; }
-  .nav a { color: var(--muted); text-decoration: none; font-size: .95rem; padding: .25rem 0; border-bottom: 1px solid transparent; }
-  .nav a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+  .site-header { padding: 1.25rem 0; }
+  .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem 2rem; flex-wrap: wrap; }
+  .brand { font-family: var(--serif); font-weight: 600; font-size: 1.3rem; color: #fff; text-decoration: none; display: inline-flex; align-items: center; gap: .6rem; }
+  .brand .mark { width: 2.1rem; height: 2.1rem; border-radius: 8px; background: var(--gold); color: var(--navy); display: grid; place-items: center; font-size: .95rem; font-weight: 600; }
+  .nav { display: flex; align-items: center; flex-wrap: wrap; gap: .25rem 1.5rem; }
+  .nav a { color: #C9D3E6; text-decoration: none; font-size: .95rem; padding: .25rem 0; border-bottom: 1px solid transparent; }
+  .nav a:hover { color: #fff; border-bottom-color: var(--gold); }
+  .nav a.cta { color: var(--gold); border: 1px solid var(--gold); border-radius: 999px; padding: .4rem 1rem; }
+  .nav a.cta:hover { background: var(--gold); color: var(--navy); }
 
-  /* Hero */
-  .hero { padding: 4.5rem 0 3.5rem; }
-  .hero .wrap { display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: start; }
+  .hero { padding-top: 3.5rem; }
+  .hero-grid { display: grid; grid-template-columns: 1fr auto; gap: 3.5rem; align-items: center; }
   .hero h1 {
     font-family: var(--serif); font-weight: 500;
-    font-size: clamp(2.25rem, 5.2vw, 3.7rem);
-    line-height: 1.08; letter-spacing: -0.01em;
-    margin: 0 0 1.5rem; max-width: 17em;
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    line-height: 1.1; letter-spacing: -0.01em;
+    margin: 0 0 1.4rem; max-width: 16em; color: #fff;
   }
-  .hero .lede { max-width: 38em; margin: 0 0 2rem; color: var(--muted); font-size: 1.125rem; }
+  .lede { max-width: 37em; margin: 0 0 2rem; color: #C9D3E6; font-size: 1.125rem; }
   .actions { display: flex; flex-wrap: wrap; gap: .75rem 1rem; align-items: center; }
   .btn {
-    display: inline-block; padding: .75rem 1.25rem; border-radius: 2px;
+    display: inline-block; padding: .8rem 1.4rem; border-radius: 999px;
     font-weight: 600; font-size: .98rem; text-decoration: none;
-    border: 1.5px solid var(--green); background: var(--green); color: #fff;
+    border: 1.5px solid var(--gold); background: var(--gold); color: var(--navy);
+    transition: background .2s, color .2s, border-color .2s;
   }
-  .btn:hover { background: var(--green-dark); border-color: var(--green-dark); color: #fff; }
-  .btn.secondary { background: transparent; color: var(--green-dark); }
-  .btn.secondary:hover { background: var(--panel); color: var(--ink); border-color: var(--ink); }
-  .portrait { margin: 0; }
+  .btn:hover { background: var(--gold-light); border-color: var(--gold-light); color: var(--navy); }
+  .btn.outline { background: transparent; color: #fff; border-color: rgba(255,255,255,.55); }
+  .btn.outline:hover { background: rgba(255,255,255,.12); border-color: #fff; color: #fff; }
+  .btn.green { background: var(--green); border-color: var(--green); color: #fff; }
+  .btn.green:hover { background: var(--green-dark); border-color: var(--green-dark); color: #fff; }
+  .btn.green-outline { background: transparent; color: var(--green-dark); border-color: var(--green); }
+  .btn.green-outline:hover { background: var(--white); color: var(--ink); border-color: var(--ink); }
+  .mail-link { color: #fff; }
+  .mail-link:hover { color: var(--gold); }
+
+  .portrait { margin: 0; position: relative; }
+  .portrait::before {
+    content: ""; position: absolute; inset: 14px -14px -14px 14px;
+    border: 2px solid var(--gold); border-radius: 999px 999px 18px 18px;
+  }
   .portrait img {
-    display: block; width: 210px; height: 260px; object-fit: cover; object-position: top;
-    border-radius: 2px; border: 1px solid var(--rule);
-    box-shadow: 8px 8px 0 var(--panel);
+    position: relative; display: block; width: 250px; height: 310px;
+    object-fit: cover; object-position: top;
+    border-radius: 999px 999px 18px 18px; background: var(--navy-2);
   }
 
-  /* Sections */
-  section { padding: 3rem 0; }
-  .section-head { border-top: 2px solid var(--ink); margin-bottom: 1.75rem; padding-top: .9rem; }
-  h2 { font-family: var(--serif); font-weight: 600; font-size: 1.75rem; line-height: 1.2; margin: 0; }
-  .section-head p { margin: .5rem 0 0; color: var(--muted); max-width: 40em; }
+  @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  .hero-copy { animation: rise .7s ease-out both; }
+  .portrait { animation: rise .7s .15s ease-out both; }
 
-  /* Ledger rows */
-  .ledger { border-top: 1px solid var(--rule); }
-  .row {
-    display: grid; grid-template-columns: 11.5rem 1fr; gap: 1rem 2rem;
-    padding: 1.4rem 0; border-bottom: 1px solid var(--rule);
+  /* ---------- Facts strip ---------- */
+  .facts {
+    list-style: none; margin: -3.5rem 0 0; padding: 0; position: relative; z-index: 2;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    background: var(--white); border-radius: 16px;
+    box-shadow: 0 20px 45px rgba(15,31,61,.14); border: 1px solid var(--rule);
   }
-  .row .label { font-weight: 600; }
-  .row .date { color: var(--muted); font-size: .95rem; padding-top: .2rem; }
-  .row h3 { font-family: var(--serif); font-weight: 600; font-size: 1.3rem; line-height: 1.3; margin: 0; }
-  .row .org { color: var(--muted); margin: .1rem 0 .6rem; }
-  .row p { margin: 0; max-width: 40em; }
-  .row ul { margin: .5rem 0 0; padding-left: 1.1rem; max-width: 42em; }
-  .row li { margin-bottom: .4rem; }
-  .row li::marker { color: var(--green); }
-  .row .award { margin-top: .6rem; font-size: .95rem; color: var(--green-dark); font-weight: 500; }
+  .facts li { padding: 1.4rem 1.5rem; border-left: 1px solid var(--rule); }
+  .facts li:first-child { border-left: 0; }
+  .facts strong { display: block; font-family: var(--serif); font-size: 1.45rem; font-weight: 600; line-height: 1.2; color: var(--ink); }
+  .facts span { display: block; margin-top: .25rem; font-size: .9rem; color: var(--muted); line-height: 1.4; }
 
-  /* The closing row, styled like a ledger total with a double rule */
-  .row.total {
-    border-top: 1.5px solid var(--ink);
-    border-bottom: 4px double var(--ink);
-    background: var(--panel);
-    padding: 1.4rem 1rem;
-    margin-top: -1px;
+  /* ---------- Sections ---------- */
+  section { padding: 3.5rem 0 1rem; }
+  .section-head { margin-bottom: 1.75rem; }
+  .section-head::before { content: ""; display: block; width: 3rem; height: 4px; border-radius: 2px; background: var(--gold); margin-bottom: 1rem; }
+  h2 { font-family: var(--serif); font-weight: 600; font-size: 1.9rem; line-height: 1.2; margin: 0; }
+  .section-head p { margin: .6rem 0 0; color: var(--muted); max-width: 40em; }
+
+  /* Role cards */
+  .roles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .card {
+    background: var(--white); border: 1px solid var(--rule); border-radius: 16px;
+    padding: 1.6rem; transition: transform .2s, box-shadow .2s;
   }
-  .row.total p { font-family: var(--serif); font-size: 1.25rem; font-weight: 500; line-height: 1.4; }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(15,31,61,.1); }
+  .icon {
+    width: 3rem; height: 3rem; border-radius: 12px; background: var(--mint); color: var(--green);
+    display: grid; place-items: center; margin-bottom: 1rem;
+  }
+  .icon svg { width: 1.5rem; height: 1.5rem; }
+  .card h3 { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; margin: 0 0 .5rem; line-height: 1.25; }
+  .card p { margin: 0; color: var(--muted); font-size: 1rem; }
 
-  /* Project */
-  .project-meta { color: var(--muted); font-size: .95rem; margin: 0 0 .75rem; }
-  .parts { list-style: none; margin: 1.25rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border-top: 1px solid var(--rule); max-width: 44em; }
-  .parts li { padding: .9rem 1rem .9rem 0; border-bottom: 1px solid var(--rule); }
-  .parts strong { display: block; font-weight: 600; }
-  .parts span { color: var(--muted); font-size: .95rem; }
-  .project-link { margin-top: 1.75rem; }
+  .open-to {
+    margin-top: 1.25rem; padding: 1.4rem 1.6rem;
+    background: var(--mint); border-radius: 12px;
+    border-top: 1.5px solid var(--ink); border-bottom: 4px double var(--ink);
+    display: grid; grid-template-columns: auto 1fr; gap: .5rem 1.75rem; align-items: baseline;
+  }
+  .open-to .k { font-weight: 600; }
+  .open-to p { margin: 0; font-family: var(--serif); font-size: 1.3rem; font-weight: 500; line-height: 1.35; }
+
+  /* Project panel */
+  .project {
+    background: linear-gradient(160deg, var(--navy), var(--navy-2));
+    color: #fff; border-radius: 22px; padding: 2.5rem;
+    position: relative; overflow: hidden;
+  }
+  .project::after {
+    content: ""; position: absolute; right: -80px; top: -80px; width: 280px; height: 280px;
+    border-radius: 50%; background: radial-gradient(circle, rgba(31,107,79,.55), transparent 70%);
+    pointer-events: none;
+  }
+  .project > * { position: relative; z-index: 1; }
+  .project .meta { color: var(--gold); font-weight: 500; font-size: .95rem; margin: 0 0 .5rem; }
+  .project h2 { color: #fff; }
+  .project .intro { color: #C9D3E6; max-width: 40em; margin: .9rem 0 1.75rem; }
+  .flow { list-style: none; margin: 0 0 2rem; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4rem; }
+  .step {
+    position: relative; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.16);
+    border-radius: 14px; padding: 1.1rem 1.1rem 1.2rem;
+  }
+  .step::after {
+    content: ""; position: absolute; right: -1.05rem; top: 50%; width: .65rem; height: .65rem;
+    border-top: 2px solid var(--gold); border-right: 2px solid var(--gold);
+    transform: translateY(-50%) rotate(45deg);
+  }
+  .step:last-child::after { display: none; }
+  .step .n {
+    display: grid; place-items: center; width: 1.7rem; height: 1.7rem; border-radius: 50%;
+    background: var(--gold); color: var(--navy); font-weight: 600; font-size: .9rem; margin-bottom: .7rem;
+  }
+  .step strong { display: block; font-weight: 600; margin-bottom: .3rem; }
+  .step span { display: block; color: #C9D3E6; font-size: .92rem; line-height: 1.45; }
+
+  /* Timeline */
+  .timeline { position: relative; padding-left: 2rem; }
+  .timeline::before { content: ""; position: absolute; left: .45rem; top: .5rem; bottom: .5rem; width: 2px; background: var(--rule); }
+  .job { position: relative; background: var(--white); border: 1px solid var(--rule); border-radius: 16px; padding: 1.5rem 1.6rem; margin-bottom: 1.25rem; }
+  .job::before {
+    content: ""; position: absolute; left: -1.95rem; top: 1.9rem; width: 14px; height: 14px;
+    border-radius: 50%; background: var(--green); border: 3px solid var(--paper); box-sizing: content-box;
+    margin-left: -3px;
+  }
+  .when { display: inline-block; background: var(--mint); color: var(--green-dark); border-radius: 999px; padding: .2rem .8rem; font-size: .88rem; font-weight: 500; margin-bottom: .7rem; }
+  .job h3 { font-family: var(--serif); font-size: 1.35rem; font-weight: 600; margin: 0; line-height: 1.3; }
+  .job .org { margin: .15rem 0 .7rem; color: var(--muted); }
+  .job ul { margin: 0; padding-left: 1.1rem; max-width: 44em; }
+  .job li { margin-bottom: .4rem; }
+  .job li::marker { color: var(--gold); }
+  .award { margin: .8rem 0 0; padding: .5rem .9rem; border-left: 3px solid var(--gold); background: #FBF6E8; border-radius: 0 8px 8px 0; font-size: .95rem; font-weight: 500; }
 
   /* Skills */
-  .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-  .skills h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 600; margin: 0 0 .6rem; padding-bottom: .5rem; border-bottom: 1px solid var(--ink); }
-  .skills ul { list-style: none; margin: 0; padding: 0; }
-  .skills li { padding: .35rem 0; border-bottom: 1px solid var(--rule); }
+  .skill-groups { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .skill-groups h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 600; margin: 0 0 .9rem; }
+  .chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
+  .chips li { background: var(--mint); color: var(--ink); border-radius: 999px; padding: .35rem .85rem; font-size: .92rem; }
+
+  /* Education */
+  .edu { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .edu .when { margin-bottom: .8rem; }
+  .edu h3 { font-size: 1.15rem; }
+  .edu .org { color: var(--muted); margin: .2rem 0 .5rem; }
+  .edu p { margin: 0; color: var(--muted); font-size: .98rem; }
 
   /* Contact */
-  .contact-list { list-style: none; margin: 0; padding: 0; }
-  .contact-list li { display: grid; grid-template-columns: 11.5rem 1fr; gap: 1rem 2rem; padding: .9rem 0; border-bottom: 1px solid var(--rule); }
-  .contact-list li:first-child { border-top: 1px solid var(--rule); }
-  .contact-list .k { color: var(--muted); }
-
-  footer { padding: 2rem 0 3rem; color: var(--muted); font-size: .9rem; }
-  footer .wrap { border-top: 1px solid var(--rule); padding-top: 1.25rem; }
-
-  @media (max-width: 820px) {
-    .hero { padding-top: 2.5rem; }
-    .hero .wrap { grid-template-columns: 1fr; gap: 2rem; }
-    .portrait { order: -1; }
-    .portrait img { width: 150px; height: 185px; box-shadow: 6px 6px 0 var(--panel); }
-    .skills { grid-template-columns: 1fr; gap: 1.75rem; }
-    .parts { grid-template-columns: 1fr; }
+  .contact {
+    background: var(--mint); border-radius: 22px; padding: 2.5rem;
+    border: 1px solid #CFE0D5;
   }
-  @media (max-width: 640px) {
-    .row, .contact-list li { grid-template-columns: 1fr; gap: .35rem; }
-    .row.total { padding: 1.25rem .9rem; }
+  .contact p { margin: .6rem 0 1.5rem; color: var(--muted); max-width: 38em; }
+  .contact .place { margin-left: .5rem; color: var(--muted); }
+
+  footer { padding: 2.5rem 0 3rem; color: var(--muted); font-size: .9rem; text-align: center; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .flow { grid-template-columns: repeat(2, 1fr); }
+    .step::after { display: none; }
+    .facts { grid-template-columns: repeat(2, 1fr); }
+    .facts li:nth-child(3) { border-left: 0; }
+    .facts li:nth-child(n+3) { border-top: 1px solid var(--rule); }
+  }
+  @media (max-width: 820px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .portrait { order: -1; justify-self: start; margin-right: 14px; }
+    .portrait img { width: 170px; height: 210px; }
+    .roles, .skill-groups, .edu { grid-template-columns: 1fr; }
+    .nav a:not(.cta) { display: none; }
+  }
+  @media (max-width: 560px) {
+    .top { padding-bottom: 6rem; }
+    .hero { padding-top: 2rem; }
+    .flow { grid-template-columns: 1fr; }
+    .project, .contact { padding: 1.75rem 1.4rem; }
+    .open-to { grid-template-columns: 1fr; }
+    .facts li { padding: 1.1rem; }
+    .facts strong { font-size: 1.2rem; }
   }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
+    .hero-copy, .portrait { animation: none; }
+    .card, .btn { transition: none; }
+    .card:hover { transform: none; }
   }
   @media print {
     .nav, .actions, .skip { display: none; }
-    body { background: #fff; }
+    .top, .project { background: #fff; color: #000; }
+    .top h1, .project h2, .lede, .project .intro { color: #000; }
   }
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="#top">Srivatsa V</a>
-    <nav class="nav" aria-label="Main">
-      <a href="#fit">Roles</a>
-      <a href="#project">Nike report</a>
-      <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<main id="main">
-
-  <!-- HERO -->
-  <div class="hero" id="top">
+<div class="top" id="top">
+  <header class="site-header">
     <div class="wrap">
-      <div>
+      <a class="brand" href="#top"><span class="mark" aria-hidden="true">SV</span>Srivatsa V</a>
+      <nav class="nav" aria-label="Main">
+        <a href="#fit">Roles</a>
+        <a href="#project">Nike report</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a class="cta" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
         <h1>Four years of getting the books right. Now I turn them into analysis.</h1>
         <p class="lede">
           I’m Srivatsa, an accountant in Chennai. For close to four years I have scrutinised ledgers, finalised books and filed BAS, GST, ITR and FBT for Australian clients. I’m now moving into equity research, FP&amp;A and risk analysis, with a CMA (Inter) and the Post Graduate Financial Analysis Program at Imaticus behind me.
@@ -192,15 +291,28 @@
         <div class="actions">
           <a class="btn" href="https://drive.google.com/drive/folders/1dtf5gQhtea12pKLdGCpIZ6bAtOzRa0yY" target="_blank" rel="noopener">Read the Nike report</a>
           <!-- Upload your resume PDF to the repo with exactly this file name -->
-          <a class="btn secondary" href="Srivatsa_V_Resume.pdf" target="_blank" rel="noopener">Download résumé</a>
-          <a href="mailto:Srivatsa1912@gmail.com">Srivatsa1912@gmail.com</a>
+          <a class="btn outline" href="Srivatsa_V_Resume.pdf" target="_blank" rel="noopener">Download résumé</a>
+          <a class="mail-link" href="mailto:Srivatsa1912@gmail.com">Srivatsa1912@gmail.com</a>
         </div>
       </div>
-      <!-- Upload a photo to the repo named photo.jpg. If it is missing, this block removes itself. -->
+      <!-- If your photo file has a different name, change it in the src below. If the file is missing, this block removes itself. -->
       <figure class="portrait">
-        <img src="photo.jpg" alt="Portrait of Srivatsa V" width="210" height="260" onerror="this.closest('figure').remove()">
+        <img src="photo.jpg" alt="Portrait of Srivatsa V" width="250" height="310" onerror="this.closest('figure').remove()">
       </figure>
     </div>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- FACTS -->
+  <div class="wrap">
+    <ul class="facts">
+      <li><strong>Close to 4 years</strong><span>Accounting for Australian clients</span></li>
+      <li><strong>CMA (Inter)</strong><span>Both groups cleared in the first attempt</span></li>
+      <li><strong>PGFAP</strong><span>Imaticus, financial analysis, in progress</span></li>
+      <li><strong>Nike, Inc.</strong><span>Equity research report, October 2026</span></li>
+    </ul>
   </div>
 
   <!-- ROLES -->
@@ -210,31 +322,32 @@
         <h2 id="fit-h">Where my background fits</h2>
         <p>The roles I’m applying for, and the work behind my case for each.</p>
       </div>
-      <div class="ledger">
-        <div class="row">
-          <div class="label">Equity research</div>
-          <div>
-            <p>I have built the full chain of an equity research report: ratio analysis, a three-statement model, a DCF valuation and trading comparables, written up for Nike, Inc. in October 2026.</p>
+      <div class="roles">
+        <article class="card">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
           </div>
-        </div>
-        <div class="row">
-          <div class="label">FP&amp;A</div>
-          <div>
-            <p>I know what actuals look like before they reach a forecast. Years of GL scrutiny, reconciliations and book finalisation mean I check the numbers underneath a model, and I’m building Excel financial modelling on top.</p>
+          <h3>Equity research</h3>
+          <p>I have built the full chain of an equity research report: ratio analysis, a three-statement model, a DCF valuation and trading comparables, written up for Nike, Inc. in October 2026.</p>
+        </article>
+        <article class="card">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8"/><path d="M8 12h2"/><path d="M14 12h2"/><path d="M8 16h2"/><path d="M14 16h2"/></svg>
           </div>
-        </div>
-        <div class="row">
-          <div class="label">Risk analysis</div>
-          <div>
-            <p>My daily work is data verification, documentation checks and internal controls across a multi-client portfolio, delivering audit-ready records against statutory deadlines.</p>
+          <h3>FP&amp;A</h3>
+          <p>I know what actuals look like before they reach a forecast. Years of GL scrutiny, reconciliations and book finalisation mean I check the numbers underneath a model, and I’m building Excel financial modelling on top.</p>
+        </article>
+        <article class="card">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
           </div>
-        </div>
-        <div class="row total">
-          <div class="label">Open to</div>
-          <div>
-            <p>Equity research, FP&amp;A and risk analyst roles, based in Chennai.</p>
-          </div>
-        </div>
+          <h3>Risk analysis</h3>
+          <p>My daily work is data verification, documentation checks and internal controls across a multi-client portfolio, delivering audit-ready records against statutory deadlines.</p>
+        </article>
+      </div>
+      <div class="open-to">
+        <span class="k">Open to</span>
+        <p>Equity research, FP&amp;A and risk analyst roles, based in Chennai.</p>
       </div>
     </div>
   </section>
@@ -242,21 +355,17 @@
   <!-- PROJECT -->
   <section id="project" aria-labelledby="project-h">
     <div class="wrap">
-      <div class="section-head">
+      <div class="project">
+        <p class="meta">October 2026. Project for the Post Graduate Financial Analysis Program, Imaticus.</p>
         <h2 id="project-h">Equity research report: Nike, Inc.</h2>
-      </div>
-      <p class="project-meta">October 2026. Project for the Post Graduate Financial Analysis Program, Imaticus.</p>
-      <p style="max-width:40em;margin:0;">
-        A full equity research report on Nike, built the way a sell-side or buy-side analyst would build one: start from the reported financials, project them forward, then value the business two ways and compare.
-      </p>
-      <!-- EDIT: add 2 or 3 sentences here with your recommendation, target price and the main reason behind it. Recruiters look for this first. -->
-      <ul class="parts">
-        <li><strong>Ratio analysis</strong><span>Reading the reported financials for performance and financial strength.</span></li>
-        <li><strong>Three-statement model</strong><span>Income statement, balance sheet and cash flow linked in Excel.</span></li>
-        <li><strong>DCF valuation</strong><span>Intrinsic value from projected free cash flows.</span></li>
-        <li><strong>Trading comparables</strong><span>A market cross-check against peer valuation multiples.</span></li>
-      </ul>
-      <div class="project-link">
+        <p class="intro">A full equity research report on Nike, built the way a sell-side or buy-side analyst would build one: start from the reported financials, project them forward, then value the business two ways and compare.</p>
+        <!-- EDIT: add 2 or 3 sentences here with your recommendation, target price and the main reason behind it. Recruiters look for this first. -->
+        <ol class="flow">
+          <li class="step"><span class="n">1</span><strong>Ratio analysis</strong><span>Reading the reported financials for performance and financial strength.</span></li>
+          <li class="step"><span class="n">2</span><strong>Three-statement model</strong><span>Income statement, balance sheet and cash flow linked in Excel.</span></li>
+          <li class="step"><span class="n">3</span><strong>DCF valuation</strong><span>Intrinsic value from projected free cash flows.</span></li>
+          <li class="step"><span class="n">4</span><strong>Trading comparables</strong><span>A market cross-check against peer valuation multiples.</span></li>
+        </ol>
         <a class="btn" href="https://drive.google.com/drive/folders/1dtf5gQhtea12pKLdGCpIZ6bAtOzRa0yY" target="_blank" rel="noopener">Read the full report</a>
       </div>
     </div>
@@ -269,44 +378,38 @@
         <h2 id="exp-h">Experience</h2>
         <p>Accounting and compliance for Australian clients, from Chennai.</p>
       </div>
-      <div class="ledger">
-        <div class="row">
-          <div class="date">October 2025 to present</div>
-          <div>
-            <h3>Accountant</h3>
-            <p class="org">Back Office Shared Services Pty Ltd</p>
-            <ul>
-              <li>Analyse and verify financial data for a portfolio of Australian clients, performing GL scrutiny and reconciliations and finalising books into accurate, audit-ready records.</li>
-              <li>Prepare and review BAS, GST, ITR and FBT filings, keeping to regulatory requirements and statutory deadlines.</li>
-              <li>Manage Accounts Payable and Receivable in a high-volume, multi-client setting within defined controls.</li>
-              <li>Liaise with clients on queries, data requests and status updates.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="row">
-          <div class="date">January 2023 to October 2025</div>
-          <div>
-            <h3>Accountant</h3>
-            <p class="org">Carisma Solution Private Ltd</p>
-            <ul>
-              <li>Managed AP/AR, book finalisation and GL scrutiny for a portfolio of Australian clients with consistent accuracy.</li>
-              <li>Prepared and reviewed BAS, GST, ITR and FBT filings to meet statutory deadlines.</li>
-              <li>Mentored junior colleagues and reviewed their work to uphold accuracy.</li>
-            </ul>
-            <p class="award">Recognised with the Best Team Player award.</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="date">October 2022 to January 2023</div>
-          <div>
-            <h3>Junior Accountant</h3>
-            <p class="org">Carisma Solution Private Ltd</p>
-            <ul>
-              <li>Built foundations in bookkeeping, AP/AR and compliance filing.</li>
-            </ul>
-            <p class="award">Named Employee of the Month.</p>
-          </div>
-        </div>
+      <div class="timeline">
+        <article class="job">
+          <span class="when">October 2025 to present</span>
+          <h3>Accountant</h3>
+          <p class="org">Back Office Shared Services Pty Ltd</p>
+          <ul>
+            <li>Analyse and verify financial data for a portfolio of Australian clients, performing GL scrutiny and reconciliations and finalising books into accurate, audit-ready records.</li>
+            <li>Prepare and review BAS, GST, ITR and FBT filings, keeping to regulatory requirements and statutory deadlines.</li>
+            <li>Manage Accounts Payable and Receivable in a high-volume, multi-client setting within defined controls.</li>
+            <li>Liaise with clients on queries, data requests and status updates.</li>
+          </ul>
+        </article>
+        <article class="job">
+          <span class="when">January 2023 to October 2025</span>
+          <h3>Accountant</h3>
+          <p class="org">Carisma Solution Private Ltd</p>
+          <ul>
+            <li>Managed AP/AR, book finalisation and GL scrutiny for a portfolio of Australian clients with consistent accuracy.</li>
+            <li>Prepared and reviewed BAS, GST, ITR and FBT filings to meet statutory deadlines.</li>
+            <li>Mentored junior colleagues and reviewed their work to uphold accuracy.</li>
+          </ul>
+          <p class="award">Recognised with the Best Team Player award.</p>
+        </article>
+        <article class="job">
+          <span class="when">October 2022 to January 2023</span>
+          <h3>Junior Accountant</h3>
+          <p class="org">Carisma Solution Private Ltd</p>
+          <ul>
+            <li>Built foundations in bookkeeping, AP/AR and compliance filing.</li>
+          </ul>
+          <p class="award">Named Employee of the Month.</p>
+        </article>
       </div>
     </div>
   </section>
@@ -317,10 +420,10 @@
       <div class="section-head">
         <h2 id="skills-h">Skills</h2>
       </div>
-      <div class="skills">
-        <div>
+      <div class="skill-groups">
+        <div class="card">
           <h3>Financial analysis</h3>
-          <ul>
+          <ul class="chips">
             <li>Financial statement analysis</li>
             <li>Ratio analysis</li>
             <li>Cash-flow evaluation</li>
@@ -328,9 +431,9 @@
             <li>Equity research</li>
           </ul>
         </div>
-        <div>
+        <div class="card">
           <h3>Modelling and valuation</h3>
-          <ul>
+          <ul class="chips">
             <li>Excel financial modelling</li>
             <li>Three-statement model</li>
             <li>DCF valuation</li>
@@ -338,9 +441,9 @@
             <li>Data validation</li>
           </ul>
         </div>
-        <div>
+        <div class="card">
           <h3>Controls and compliance</h3>
-          <ul>
+          <ul class="chips">
             <li>GL scrutiny and reconciliation</li>
             <li>Data verification</li>
             <li>Documentation checks</li>
@@ -359,30 +462,24 @@
       <div class="section-head">
         <h2 id="edu-h">Education and certifications</h2>
       </div>
-      <div class="ledger">
-        <div class="row">
-          <div class="date">In progress</div>
-          <div>
-            <h3>Post Graduate Financial Analysis Program</h3>
-            <p class="org">Imaticus</p>
-            <p>Equity research, financial modelling, ratio analysis, three-statement modelling, DCF valuation and business valuation.</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="date">2020 to 2022</div>
-          <div>
-            <h3>Cost and Management Accountant (CMA), Semi-Qualified</h3>
-            <p class="org">Intermediate level</p>
-            <p>Cleared both groups in the first attempt (January and June 2022).</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="date">2017 to 2020</div>
-          <div>
-            <h3>Bachelor of Commerce, Corporate Secretaryship</h3>
-            <p class="org">D.G. Vaishnav College, Chennai</p>
-          </div>
-        </div>
+      <div class="edu">
+        <article class="card">
+          <span class="when">In progress</span>
+          <h3>Post Graduate Financial Analysis Program</h3>
+          <p class="org">Imaticus</p>
+          <p>Equity research, financial modelling, ratio analysis, three-statement modelling, DCF valuation and business valuation.</p>
+        </article>
+        <article class="card">
+          <span class="when">2020 to 2022</span>
+          <h3>Cost and Management Accountant (CMA), Semi-Qualified</h3>
+          <p class="org">Intermediate level</p>
+          <p>Cleared both groups in the first attempt (January and June 2022).</p>
+        </article>
+        <article class="card">
+          <span class="when">2017 to 2020</span>
+          <h3>Bachelor of Commerce, Corporate Secretaryship</h3>
+          <p class="org">D.G. Vaishnav College, Chennai</p>
+        </article>
       </div>
     </div>
   </section>
@@ -390,15 +487,15 @@
   <!-- CONTACT -->
   <section id="contact" aria-labelledby="contact-h">
     <div class="wrap">
-      <div class="section-head">
+      <div class="contact">
         <h2 id="contact-h">Contact</h2>
         <p>Hiring for equity research, FP&amp;A or risk? Email is the quickest way to reach me.</p>
+        <div class="actions">
+          <a class="btn green" href="mailto:Srivatsa1912@gmail.com">Email me</a>
+          <a class="btn green-outline" href="https://www.linkedin.com/in/srivatsa--v" target="_blank" rel="noopener">LinkedIn profile</a>
+          <span class="place">Chennai, India</span>
+        </div>
       </div>
-      <ul class="contact-list">
-        <li><span class="k">Email</span><a href="mailto:Srivatsa1912@gmail.com">Srivatsa1912@gmail.com</a></li>
-        <li><span class="k">LinkedIn</span><a href="https://www.linkedin.com/in/srivatsa--v" target="_blank" rel="noopener">Open my LinkedIn profile</a></li>
-        <li><span class="k">Location</span><span>Chennai, India</span></li>
-      </ul>
     </div>
   </section>
 
